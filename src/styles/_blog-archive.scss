@@ -1,0 +1,74 @@
+
+@import 'util/util';
+
+
+//Blog Archive
+.post {
+    transition: all 0.1s linear;
+    * {
+        margin-bottom: 10px;
+    }
+    @include breakpoint(lg-up) {
+    display: grid;
+    margin: $gutter-4 $gutter-8 0px $gutter-8;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: $gutter-4 $gutter-4;
+    grid-template-areas: "post-image post-content";
+    }
+    margin: $gutter-4;
+    &--image {
+        @include breakpoint(lg-up) {
+        grid-area: post-image;
+        width: 60vw;
+        }
+        width: 100%;
+    }
+    &--wrapper {
+        @include breakpoint(lg-up) {
+        grid-area: post-content;
+        }
+    }
+    &--date {
+        color: $gray;
+        @include breakpoint(lg-up) {
+        margin-top: $gutter-2;
+        }
+        margin-bottom: $gutter-1;
+    }
+    &--title {
+        color: $orange;
+        font-size: 36px;
+        line-height: 1.2;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+    &--link {
+        color: $orange;
+        text-decoration: underline;
+        font-weight: 500;
+        &::after {
+            display: inline-block;
+            content: '';
+            -webkit-mask: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>');
+            mask: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>');
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            background-size: 20px 20px;
+            height: 20px;
+            width: 20px;
+            vertical-align: bottom;
+        }
+        &__has-icon {
+            &::after{
+            background-color: $orange;
+            }
+        }
+    }
+    &__single {
+        margin-top: $gutter-4;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

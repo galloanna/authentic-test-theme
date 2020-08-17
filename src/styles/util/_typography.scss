@@ -1,0 +1,10 @@
+@import 'colors';
+
+$default-font: 'Raleway', Arial, sans-serif;
+
+* {
+    font-family: $default-font;
+    font-size: 14px;
+    line-height: 1.6;
+    color: $dark-gray;
+}

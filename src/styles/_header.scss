@@ -1,0 +1,107 @@
+@import 'util/util';
+ .custom-logo {
+     width: 43px;
+     height: 33px;
+}
+ .brand-menu {
+    @include breakpoint(sm-only) {
+        padding: $gutter-2 $gutter-4;
+        justify-content: center;
+        // &::before {
+        //     display: inline-block;
+        //     content: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>');
+        //     color: black;
+        //     background-size: 20px 20px;
+        //     height: 20px;
+        //     width: 20px;
+        //     z-index: 999;
+        //     position: absolute;
+        //     left: 0;
+        //     top: 0;
+        //     background-color: $blue;
+        //     border: $gutter-4 solid $blue;
+        // }
+        }
+    @include breakpoint(lg-down) {
+        padding: $gutter-2 $gutter-4;
+    }
+     padding: $gutter-2 $gutter-8;
+     display: flex;
+     background-color: $light-blue;
+     &--title {
+         color: $white;
+         font-weight: 600;
+         margin-left: $gutter-2;
+         position: relative;
+         top: $gutter-2;
+         @include breakpoint(sm-only) {
+             display: none;
+         }
+    }
+}
+ .nav-menu {
+     background-color: $blue;
+     display: flex;
+     align-items: center;
+     &--links {
+         list-style-type: none;
+         margin-left: -$gutter-8;
+         @include breakpoint(md-up) {
+            margin-left: -$gutter-4;
+            }
+            
+         li {
+            @include breakpoint(sm-up) {
+                display: inline-block;
+                border: 0;
+                }
+            border-bottom: 0.5px solid $gray;
+             &.current-menu-item {
+                 background-color: $dark-blue;
+                 a {
+                     color: $yellow;
+                }
+            }
+             a {
+                 display: block;
+                 height: 100%;
+                 font-size: 18px;
+                 color: $white;
+                 text-decoration: underline;
+                 padding: $gutter-3 $gutter-4;
+                 @include breakpoint(sm-only) {
+                    width: 100vh;
+                    padding: $gutter-3 $gutter-4;
+                    }
+            }
+        }
+    }
+    @include breakpoint(sm-only){
+        overflow: hidden; // Hide the element content, while height = 0
+    height: 0; opacity: 0;
+    transition: height 0ms 400ms, opacity 400ms 0ms;
+    }
+    &.active {
+        height: auto; opacity: 1;
+        transition: height 0ms 0ms, opacity 600ms 0ms;
+    }
+}
+
+
+.toggle {
+display: flex;
+background-color: $blue;
+background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>') no-repeat;
+position: absolute;
+left: 0;
+top: 0;
+width: 59px;
+height: 59px;
+justify-content: center;
+&--inner {
+    align-self: center;
+}
+@include breakpoint(sm-up){
+    display: none;
+}
+}
