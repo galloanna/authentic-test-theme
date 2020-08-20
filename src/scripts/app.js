@@ -1,3 +1,5 @@
+AOS.init();
+
 jQuery( window ).load(function() {
 jQuery(document).ready(function() {
     jQuery('.mobile-menu-open').click(function() {
