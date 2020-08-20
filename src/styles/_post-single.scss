@@ -1,0 +1,33 @@
+
+@import 'util/util';
+
+//Blog post
+.post-single {
+    * {
+        margin-bottom: 10px;
+    }
+    @include breakpoint(md-up){
+    margin: $gutter-4 $gutter-8 0px $gutter-8;
+    }
+    margin: $gutter-4;
+    &__image {
+        width: 100%;
+        @include breakpoint(lg-only){
+            max-width: 70vw;
+        }        
+    }
+    &__date {
+        color: $gray;
+        @include breakpoint(lg-only) {
+        margin-top: $gutter-2;
+        }
+        margin-bottom: $gutter-1;
+    }
+    &__title {
+        color: $orange;
+        font-size: 36px;
+        line-height: 1.2;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+}

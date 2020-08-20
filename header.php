@@ -10,14 +10,17 @@
   <body>
     <header>
       <div class="brand-menu">
-          <div class="toggle">
-              <div class="toggle--inner">
-              click
+          <div class="mobile-menu-open">
+              <div class="mobile-menu-open__inner">
+              </div>
+          </div>
+          <div class="mobile-menu-close">
+              <div class="mobile-menu-close__inner">
               </div>
           </div>
         <a href="<?php echo home_url( '/' ); ?>">
           <?php the_custom_logo();?>
-          <div class="brand-menu--title">
+          <div class="brand-menu__title">
             <?php bloginfo( 'name' ); ?>
           </div>
         </a>
@@ -27,7 +30,7 @@
             wp_nav_menu (
                 array (
                     'theme_location' => 'top-nav',
-                    'menu_class' => 'nav-menu--links'
+                    'menu_class' => 'nav-menu__links'
                 )
             );
             ?>

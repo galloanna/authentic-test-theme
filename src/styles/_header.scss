@@ -4,9 +4,9 @@
      height: 33px;
 }
  .brand-menu {
-    @include breakpoint(sm-only) {
         padding: $gutter-2 $gutter-4;
         justify-content: center;
+        display: flex;
         // &::before {
         //     display: inline-block;
         //     content: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>');
@@ -21,21 +21,24 @@
         //     background-color: $blue;
         //     border: $gutter-4 solid $blue;
         // }
-        }
-    @include breakpoint(lg-down) {
+
+    @include breakpoint(sm-up) {
         padding: $gutter-2 $gutter-4;
+        justify-content: initial;
     }
+    @include breakpoint(md-up){
      padding: $gutter-2 $gutter-8;
-     display: flex;
+    }
      background-color: $light-blue;
-     &--title {
-         color: $white;
-         font-weight: 600;
-         margin-left: $gutter-2;
-         position: relative;
-         top: $gutter-2;
-         @include breakpoint(sm-only) {
-             display: none;
+     &__title {
+         display: none;
+         @include breakpoint(sm-up) {
+            display: inline;
+            color: $white;
+            font-weight: 600;
+            margin-left: $gutter-2;
+            position: relative;
+            top: $gutter-2;
          }
     }
 }
@@ -43,7 +46,7 @@
      background-color: $blue;
      display: flex;
      align-items: center;
-     &--links {
+     &__links {
          list-style-type: none;
          margin-left: -$gutter-8;
          @include breakpoint(md-up) {
@@ -71,7 +74,6 @@
                  padding: $gutter-3 $gutter-4;
                  @include breakpoint(sm-only) {
                     width: 100vh;
-                    padding: $gutter-3 $gutter-4;
                     }
             }
         }
@@ -88,20 +90,45 @@
 }
 
 
-.toggle {
+.mobile-menu-open {
 display: flex;
 background-color: $blue;
-background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>') no-repeat;
+// background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>');
 position: absolute;
 left: 0;
 top: 0;
 width: 59px;
 height: 59px;
 justify-content: center;
-&--inner {
+&__inner {
+    height: 20px;
+    width: 20px;
     align-self: center;
+    background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" style="fill: white;"/></svg>');
 }
 @include breakpoint(sm-up){
     display: none;
 }
 }
+
+.mobile-menu-close {
+    display: flex;
+    background-color: $blue;
+    // background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>');
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 59px;
+    height: 59px;
+    justify-content: center;
+    &__inner {
+        height: 20px;
+        width: 20px;
+        align-self: center;
+        background-image: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" style="fill: white;"/></svg>');    
+    }
+    @include breakpoint(sm-up){
+        display: none!important;
+    }
+    visibility: hidden;
+    }

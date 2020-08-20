@@ -1,0 +1,19 @@
+@import 'util/util';
+
+//Blog post
+.front-page {
+    * {
+        margin-bottom: 10px;
+    }
+    @include breakpoint(md-up){
+    margin: $gutter-4 $gutter-8 0px $gutter-8;
+    }
+    margin: $gutter-4;
+    &__title {
+        color: $orange;
+        font-size: 36px;
+        line-height: 1.2;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+}

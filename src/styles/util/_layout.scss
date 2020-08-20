@@ -1,0 +1,6 @@
+.section-wrapper {
+    @include breakpoint(lg-only) {
+        margin: $gutter-4 $gutter-8 0px $gutter-8;
+    }
+
+}
